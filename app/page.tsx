@@ -32,6 +32,7 @@ const data: {
 
 export default function Home () {
   const sliceData = data.contents.slice(0,2);
+  //const sliceData: News =[];
 
   return(
     <>
@@ -41,7 +42,7 @@ export default function Home () {
         <p className={styles.description}>私たちは市場をリードしているグローバルテックカンパニーです</p>
       </div>
         <Image className={styles.bgimg}
-        src="img-mv.jpg" 
+        src="/img-mv.jpg" 
         alt=""
         width={4000}
         height={1200} 
