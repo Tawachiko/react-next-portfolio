@@ -18,4 +18,4 @@ export default function RootLayout({ children }: Props) {
       <GoogleAnalytics gaId="G-XXX" />
     </>
   );
-}
+} 
