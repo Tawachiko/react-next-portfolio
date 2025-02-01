@@ -2,7 +2,7 @@
 
 import { createContactData } from '@/app/_actions/contact';
 import { useFormState } from 'react-dom';
-import { sendGAEvent } from '@next/third-parties/google';
+import  Script  from 'next/script';
 import styles from './index.module.css';
 
 const initialState = {
@@ -14,7 +14,7 @@ export default function ContactForm() {
   const [state, formAction] = useFormState(createContactData, initialState);
   console.log(state);
   const handleSubmit = () => {
-    sendGAEvent({ event: 'contact', value: 'submit' });
+    sendGAt({ event: 'contact', value: 'submit' });
   };
   if (state.status === 'success') {
     return (
@@ -87,4 +87,8 @@ export default function ContactForm() {
       </div>
     </form>
   );
+}
+
+function sendGAt(arg0: { event: string; value: string; }) {
+  throw new Error('Function not implemented.');
 }

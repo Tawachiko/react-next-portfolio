@@ -16,9 +16,9 @@ export default async function Home() {
     <>
       <section className={styles.top}>
         <div>
-          <h1 className={styles.title}></h1>
+          <h1 className={styles.title}>駆け始めたてのポートフォリオ</h1>
           <p className={styles.description}>
-            tawatawa
+            ITの知識とか本当にないけど、将来はIT系の職に就きたいです！！
           </p>
         </div>
         <Image
