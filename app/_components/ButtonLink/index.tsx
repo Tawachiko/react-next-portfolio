@@ -1,16 +1,19 @@
-import styles from './index.module.css';
+// ButtonLink.tsx
+import React from "react";
+import Link from "next/link";
 
-type Props = {
+interface Props {
   href: string;
   children: React.ReactNode;
-};
-
-export default function ButtonLink({ href, children }: Props) {
-  return (
-    <a href={href} className={styles.button}>
-      {children}
-    </a>
-  );
+  className?: string; // className をオプションに追加
 }
 
+const ButtonLink: React.FC<Props> = ({ href, children, className }) => {
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+};
 
+export default ButtonLink;

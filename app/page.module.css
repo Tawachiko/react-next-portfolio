@@ -3,10 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* 背景色 */
   color: #fff;
   overflow: hidden;
   padding: 200px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* セクションに影を追加 */
+  border-radius: var(--border-radius); /* 角を丸くする */
 }
 
 .title {
@@ -14,10 +16,13 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* タイトルに影を追加 */
 }
 
 .description {
   text-align: center;
+  font-size: 1.1rem; /* 文字サイズ調整 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* 説明に影を追加 */
 }
 
 .bgimg {
@@ -41,10 +46,39 @@
   margin: -40px auto 0;
   padding: 24px 40px;
   border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* ニュースセクションに影を追加 */
 }
 
-.newsTitle {
-  font-size: 1.5rem;
+/* .newsLink ボタン風スタイル */
+.newsLink {
+  position: relative;
+  right: -40px;
+  bottom: -40px;
+  margin-top: 16px;
+  display: inline-block;
+  background-color: #007bff; /* ボタンの背景色 */
+  color: #fff; /* ボタンの文字色 */
+  padding: 12px 24px; /* 内側の余白 */
+  font-size: 1rem; /* 文字サイズ */
+  font-weight: bold;
+  text-align: center;
+  border-radius: var(--border-radius); /* 角を丸く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 初期状態の影 */
+  transition: all 0.3s ease; /* 動きの遷移をスムーズに */
+  text-decoration: none; /* リンクの下線を削除 */
+}
+
+/* ホバー時に背景色と影を変更 */
+.newsLink:hover {
+  background-color: #0056b3; /* ホバー時の背景色 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* ホバー時に影を強調 */
+  transform: translateY(-4px); /* 少し上に動かす効果 */
+}
+
+/* フォーカス時のスタイル */
+.newsLink:focus {
+  outline: none; /* フォーカス時のアウトラインを削除 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* フォーカス時に影を強調 */
 }
 
 .newsLink {
