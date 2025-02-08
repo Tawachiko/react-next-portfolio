@@ -1,22 +1,19 @@
-'use client';
+"use client";
 
-import { createContactData } from '@/app/_actions/contact';
-import { useFormState } from 'react-dom';
-import  Script  from 'next/script';
-import styles from './index.module.css';
+import { createContactData } from "@/app/_actions/contact";
+import { useFormState } from "react-dom";
+import styles from "./index.module.css";
 
 const initialState = {
-  status: '',
-  message: '',
+  status: "",
+  message: "",
 };
 
 export default function ContactForm() {
   const [state, formAction] = useFormState(createContactData, initialState);
   console.log(state);
-  const handleSubmit = () => {
-    sendGAt({ event: 'contact', value: 'submit' });
-  };
-  if (state.status === 'success') {
+  const handleSubmit = () => {};
+  if (state.status === "success") {
     return (
       <p className={styles.success}>
         お問い合わせいただき、ありがとうございます。
@@ -80,15 +77,11 @@ export default function ContactForm() {
         <textarea className={styles.textarea} id="message" name="message" />
       </div>
       <div className={styles.actions}>
-        {state.status === 'error' && (
+        {state.status === "error" && (
           <p className={styles.error}>{state.message}</p>
         )}
         <input type="submit" value="送信する" className={styles.button} />
       </div>
     </form>
   );
-}
-
-function sendGAt(arg0: { event: string; value: string; }) {
-  throw new Error('Function not implemented.');
 }
