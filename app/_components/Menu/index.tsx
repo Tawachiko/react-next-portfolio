@@ -2,42 +2,58 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import cx from 'classnames';
 import styles from './index.module.css';
 
 export default function Menu() {
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    handleResize(); // 初回実行
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const open = () => setOpen(true);
   const close = () => setOpen(false);
 
   return (
     <div>
-      <nav className={cx(styles.nav, isOpen && styles.open)}>
+      {/* ハンバーガーメニュー（スマホ用） */}
+      {!isDesktop && (
+        <button className={styles.menuButton} onClick={open}>
+          <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
+        </button>
+      )}
+
+      {/* ナビゲーションメニュー */}
+      <nav className={cx(styles.nav, (isOpen || isDesktop) && styles.open, isDesktop && styles.desktop)}>
         <ul className={styles.items}>
           <li>
-            <Link href="/news">ニュース</Link>
+            <Link href="/news" onClick={close}>ニュース</Link>
           </li>
           <li>
-            <Link href="/aboutme">僕のこと</Link>
+            <Link href="/aboutme" onClick={close}>僕のこと</Link>
           </li>
           <li>
-            <Link href="/contact">お問い合わせ</Link>
+            <Link href="/contact" onClick={close}>お問い合わせ</Link>
           </li>
         </ul>
-        <button className={cx(styles.button, styles.close)} onClick={close}>
-          <Image
-            src="/close.svg"
-            alt="閉じる"
-            width={24}
-            height={24}
-            priority
-          />
-        </button>
+
+        {/* 閉じるボタン（ハンバーガーメニュー内） */}
+        {!isDesktop && isOpen && (
+          <button className={styles.closeButton} onClick={close}>
+            <Image src="/close.svg" alt="閉じる" width={24} height={24} priority />
+          </button>
+        )}
       </nav>
-      <button className={styles.button} onClick={open}>
-        <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
-      </button>
     </div>
   );
 }

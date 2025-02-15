@@ -1,24 +1,35 @@
 .header {
-    position: absolute;
-    padding: 16px 24px 8px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+  position: fixed; /* absolute → fixed に変更 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 24px 8px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(20, 20, 20, 0.9); /* 背景色を追加 */
+  backdrop-filter: blur(8px); /* 背景をぼかす */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+  .header {
+    padding: 12px 16px; /* モバイル向けに余白を調整 */
   }
-  
-  .logoLink {
-    display: flex;
-  }
-  
+
   .logo {
-    height: 24px;
-    width: auto;
+    height: 20px; /* モバイル時に少し小さくする */
   }
-  
-  @media (max-width: 640px) {
-    .header {
-      padding: 24px 16px 8px;
-    }
-  }
+}
