@@ -8,7 +8,7 @@ export default async function Page() {
   return (
     <div className={styles.container}>
       {data.contents.length === 0 ? (
-        <p className={styles.empty}>メンバーが登録されていません。</p>
+        <p className={styles.empty}>メンバー情報がありません</p>
       ) : (
         <ul>
           {data.contents.map((member) => (
