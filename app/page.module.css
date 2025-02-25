@@ -130,8 +130,8 @@
 
 .newsItem {
   display: flex;
-  align-items: center;
-  justify-content: space-between; /* タイトルと公開日を左右に配置 */
+  flex-direction: column; /* 縦方向に配置 */
+  align-items: flex-start; /* 左寄せにする（必要なら center に変更） */
   padding: 16px;
   background-color: #fff;
   border-radius: 8px;

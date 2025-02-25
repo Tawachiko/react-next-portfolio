@@ -4,6 +4,7 @@
     color: var(--color-text-sub);
     font-size: 0.8rem;
     margin-top: 80px;
+    background: #000;
   }
   
   .nav {

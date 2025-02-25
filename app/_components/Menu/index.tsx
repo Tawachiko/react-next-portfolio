@@ -28,11 +28,10 @@ export default function Menu() {
     <div>
       {/* ハンバーガーメニュー（スマホ用） */}
       {!isDesktop && (
-        <button className={styles.menuButton} onClick={open}>
-          <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
-        </button>
-      )}
-
+  <button className={cx(styles.menuButton, isOpen && 'hidden')} onClick={open}>
+    <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
+  </button>
+)}
       {/* ナビゲーションメニュー */}
       <nav className={cx(styles.nav, (isOpen || isDesktop) && styles.open, isDesktop && styles.desktop)}>
         <ul className={styles.items}>
@@ -46,13 +45,13 @@ export default function Menu() {
             <Link href="/contact" onClick={close}>お問い合わせ</Link>
           </li>
         </ul>
-
+        
         {/* 閉じるボタン（ハンバーガーメニュー内） */}
-        {!isDesktop && isOpen && (
-          <button className={styles.closeButton} onClick={close}>
-            <Image src="/close.svg" alt="閉じる" width={24} height={24} priority />
-          </button>
-        )}
+        {!isDesktop && (
+  <button className={cx(styles.closeButton, !isOpen && 'hidden')} onClick={close}>
+    <Image src="/close.svg" alt="閉じる" width={24} height={24} priority />
+  </button>
+)}
       </nav>
     </div>
   );

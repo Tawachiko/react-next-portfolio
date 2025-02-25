@@ -48,25 +48,35 @@
   color: #f0a500;
 }
 
-/* ハンバーガーメニューの開くボタン */
 .menuButton {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: fixed; /* 画面固定 */
+  top: 16px;
+  right: 16px;
+  z-index: 1000; /* 他の要素より前面に表示 */
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000; /* 重なり順を上げる */
 }
 
-/* 閉じるボタン */
+/* メニューが開いたときは非表示 */
+.menuButton.hidden {
+  display: none;
+}
+
 .closeButton {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed; /* 画面固定で見えるように */
+  top: 16px;
+  right: 16px;
+  z-index: 1001; /* menuButton より前面 */
   background: none;
   border: none;
   cursor: pointer;
+  display: none; /* 初期状態は非表示 */
+}
+
+/* メニューが開いたときは表示 */
+.closeButton.visible {
+  display: block;
 }
 
 /* PC（デスクトップ）用のスタイル */
@@ -95,10 +105,5 @@
   .items a {
     color: rgb(255, 255, 255);
     font-size: 1rem;
-  }
-
-  .menuButton,
-  .closeButton {
-    display: none; /* PCではボタンを非表示 */
   }
 }
